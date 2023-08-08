@@ -19,5 +19,6 @@ char board[8][8] = {
 {'R', 'K', 'B', 'Q', 'K', 'B', 'K', 'R'},
 };
 print_chessboard(board);
-return (0);
 
+return (0);
+}
