@@ -1,29 +1,29 @@
 #include "lists.h"
 
 /**
- * dlistint_len - Number of ll
+ * dlistint_len - returns the number of elements in
+ * a double linked list
  *
- * @h: Head
- *
- * Return: Number of elements
+ * @h: head of the list
+ * Return: the number of nodes
  */
-
 size_t dlistint_len(const dlistint_t *h)
 {
-	unsigned int count = 0;
-	const dlistint_t *list;
+	int count;
 
-	list = malloc(sizeof(dlistint_t));
-	list = h;
+	count = 0;
 
-	if (list == NULL)
+	if (h == NULL)
+		return (count);
+
+	while (h->prev != NULL)
+		h = h->prev;
+
+	while (h != NULL)
 	{
-		return (0);
-	}
-	while (list)
-	{
-		list = list->next;
 		count++;
+		h = h->next;
 	}
+
 	return (count);
 }
