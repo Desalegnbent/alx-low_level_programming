@@ -1,13 +1,35 @@
 #!usr/bin/python3
-largest_palandirome = 0
-for i in range (100,1000):
-    for j in range (100,1000):
-         product = i+j
-         if str(product) == str (product) [:: -1] and product > largest_palindrome:
-         largest_palindrome = product
-#save the result in file
-with open ("102 result","w") as file:
-file.write(str(largest_palindrome))
+package projecteuler;
+
+public class Pro4 {
+
+    public static void main(String[] args) {
+
+        for(int i=999*999;i>=100*100;i--){
+            if(isPalindrome(i)==true){
+                System.out.println(i);
+                break;
+            }
+        }
+    }
+
+    static boolean isPalindrome(int x){
+        int[] bits = new int[7];
+        int index=1;
+        while(x>0){
+            bits[index]=x%10;
+            index++;
+            x/=10;
+        }
+        for(int i=1;i<=index/2;i++){
+            if(bits[i]!=bits[index-i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
 ~                                                                                                                                           
 ~                                                                                                                                           
 ~                                                                                                                                           
